@@ -1,0 +1,150 @@
+ body{
+    font-family: Arial;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+.container, .sobre-container {
+    width: 700px;
+    max-width: 100%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #243852;
+}
+
+h1::before {
+    content: "LR";
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #243852;
+    color: white;
+    line-height: 55px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.menu {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.menu a {
+    background-color: #243852;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.mensagem {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-left: 5px solid #243852;
+    animation: aparecer 0.7s;
+}
+
+.mensagem h2 {
+    color: #243852;
+}
+
+.mensagem-conteudo {
+    background-color: #f5f5f5;
+    padding: 15px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.sms {
+    border-left-color: #55708f;
+}
+
+.whatsapp {
+    border-left-color: #7189a3;
+}
+
+.sobre-topo {
+    text-align: center;
+    margin: 30px 0;
+    animation: aparecer 1s;
+}
+
+.logo-sobre {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #243852;
+    color: white;
+    line-height: 60px;
+    font-weight: bold;
+}
+
+.sobre-topo p {
+    color: #777;
+}
+
+.sobre-card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border-left: 5px solid #243852;
+    animation: aparecer 0.8s;
+}
+
+.sobre-card h2 {
+    color: #243852;
+}
+
+.sobre-card p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.info-box {
+    background-color: #f1f3f5;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.areas {
+    display: flex;
+    gap: 10px;
+}
+
+.area {
+    background-color: #f1f3f5;
+    padding: 12px;
+    flex: 1;
+}
+
+.area h3 {
+    color: #243852;
+}
+
+.destaque {
+    border-left-color: #55708f;
+}
+
+.compromisso {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    color: #243852;
+    margin-top: 30px;
+}

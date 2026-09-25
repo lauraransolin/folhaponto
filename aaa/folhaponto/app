@@ -1,0 +1,135 @@
+Banco de dados: app
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela emprestimo
+--
+
+CREATE TABLE emprestimo (
+  id int NOT NULL,
+  leitor_id int DEFAULT NULL,
+  livro_id int NOT NULL,
+  lido_em datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela emprestimo
+--
+
+INSERT INTO emprestimo (id, leitor_id, livro_id, lido_em) VALUES
+(1, 3, 1, '2026-08-06 23:06:09'),
+(2, 2, 2, '2026-08-06 23:06:39'),
+(3, NULL, 2, '2026-08-06 23:07:05');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela leitores
+--
+
+CREATE TABLE leitores (
+  id int NOT NULL,
+  nome varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  pass_hash varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela leitores
+--
+
+INSERT INTO leitores (id, nome, email, pass_hash) VALUES
+(1, 'JOÃO PAULO', 'jp@gmail.com', 'as96844sa9f4sa98hgf4d98j4j98f4g'),
+(2, 'LAURA', 'laura@gmail.com', 'ersi8uhres90w56hjwcascascascsa'),
+(3, 'ISIS', 'isis@gmail.com', 'galinhapintadinha');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela livros
+--
+
+CREATE TABLE livros (
+  id int NOT NULL,
+  leitor_id int DEFAULT NULL,
+  nome varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela livros
+--
+
+INSERT INTO livros (id, leitor_id, nome) VALUES
+(1, 3, 'Guerra dos Tronos'),
+(2, NULL, 'Pai Rico Pai Pobre');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela emprestimo
+--
+ALTER TABLE emprestimo
+  ADD PRIMARY KEY (id),
+  ADD KEY leitor_id (leitor_id),
+  ADD KEY livro_id (livro_id);
+
+--
+-- Índices de tabela leitores
+--
+ALTER TABLE leitores
+  ADD PRIMARY KEY (id);
+
+--
+-- Índices de tabela livros
+--
+ALTER TABLE livros
+  ADD PRIMARY KEY (id),
+  ADD KEY leitor_id (leitor_id);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela emprestimo
+--
+ALTER TABLE emprestimo
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela leitores
+--
+ALTER TABLE leitores
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela livros
+--
+ALTER TABLE livros
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas emprestimo
+--
+ALTER TABLE emprestimo
+  ADD CONSTRAINT emprestimo_ibfk_1 FOREIGN KEY (leitor_id) REFERENCES leitores (id),
+  ADD CONSTRAINT emprestimo_ibfk_2 FOREIGN KEY (livro_id) REFERENCES livros (id);
+
+--
+-- Restrições para tabelas livros
+--
+ALTER TABLE livros
+  ADD CONSTRAINT livros_ibfk_1 FOREIGN KEY (leitor_id) REFERENCES leitores (id);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -70,3 +70,12 @@ th,td{
     width:120px;
     margin:20px auto;
 }
+ */
+
+ /* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
